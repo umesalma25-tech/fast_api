@@ -185,7 +185,7 @@ def update_patient(patient_id: str, patient_update: PatientUpdate):
         existing_patient_info[key] = value
         
     # existing_patient_info -> pydantic object -> updated bmi + verdict 
-    existing_patient_info['id'] = patient_id]
+    existing_patient_info['id'] = patient_id
     patient_pydantic_obj = Patient(**existing_patient_info)
     
     # -> pydantic object -> dict
@@ -212,6 +212,6 @@ def delete_patient(patient_id: str):
     
     save_data(data)
     
-    return JSONResponse(status_code=200, content=['message': 'patient deleted'])
+    return JSONResponse(status_code=200, content={'message': 'patient deleted'})
 
 
